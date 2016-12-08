@@ -9,6 +9,8 @@
   "author": "Chris Sullivan",
   "license": "ISC",
   "dependencies": {
+    "fs": "0.0.1-security",
+    "nightmare": "^2.8.1",
     "twilio": "^2.11.1"
   }
 }
