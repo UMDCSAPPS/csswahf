@@ -9,7 +9,7 @@ var client = new twilio.RestClient(accountSid, authToken);
 client.messages.create({
     body: 'Please reply with your latest grades in each class',
     to: '+14438785019',  // Text this number
-    from: '+14437762118' // From a valid Twilio number
+    from: credentails.sendNumber // From a valid Twilio number
 }, function(err, message) {
     if(err){
       console.log(err)
