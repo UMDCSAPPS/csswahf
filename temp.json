@@ -1,11 +1,25 @@
 {
-  "fullname": "Marcelo McAndrew",
-  "year": "1",
-  "teamleader": "Brandon Estime",
-  "seminar": "yes",
-  "study": "3",
-  "quizgrades": "A on CMSC131 project",
-  "class": "doing well in calculus",
-  "major":"yes"
-
+  "scholar":[
+  {
+    "fullname": "Marcelo McAndrew",
+    "year": "1",
+    "teamleader": "Brandon Estime",
+    "seminar": "yes",
+    "study": "3",
+    "quizgrades": "A on CMSC131 project",
+    "class": "doing well in calculus",
+    "major":"yes",
+    "phone": "2403606330"
+  },
+  {
+    "fullname": "Chris Sullivan",
+    "year": "1",
+    "teamleader": "Daniel Symanovski",
+    "seminar": "yes",
+    "study": "3",
+    "quizgrades": "A on AREC200 project",
+    "class": "doing well in compsci",
+    "major":"yes",
+    "phone":"14438785019"
+  }]
 }

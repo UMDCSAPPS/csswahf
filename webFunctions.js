@@ -16,20 +16,23 @@ var contents = fs.readFileSync(path.resolve()+'/temp.json');
 //parse contents e.g temp.fullname, temp.year
 var temp = JSON.parse(contents);
 
+//takes in the id number of the person as third argument
+var id = process.argv[2]
+
   //go to the wahf form
-  nightmare.goto(wahf)
+  nightmare.viewport(2560,1440).goto(wahf)
 
     //take screenshot
     .screenshot('test.png')
 
     //Enter Name
-    .type('input:nth-of-type(1)',temp.fullname)
+    .type('input:nth-of-type(1)',temp.scholar[id].fullname)
 
     //Select year
-    .click('label:nth-of-type('+temp.year+')')
+    .click('label:nth-of-type('+temp.scholar[id].year+')')
 
     //insert the team leader
-    .type('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(7) > div.freebirdFormviewerViewItemsTextItemWrapper > div > div.quantumWizTextinputPaperinputMainContent.exportContent > div > div.quantumWizTextinputPaperinputInputArea > input',temp.teamleader)
+    .type('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(7) > div.freebirdFormviewerViewItemsTextItemWrapper > div > div.quantumWizTextinputPaperinputMainContent.exportContent > div > div.quantumWizTextinputPaperinputInputArea > input',temp.scholar[id].teamleader)
 
     //team leader contacted you yes
     .click('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(8) > div:nth-child(2) > div > content > div > label:nth-child(1) > div > div.docssharedWizToggleLabeledContent > div > span')
@@ -41,10 +44,10 @@ var temp = JSON.parse(contents);
     .click('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(10) > div:nth-child(2) > div > content > div > label:nth-child(1) > div > div.docssharedWizToggleLabeledContent > div > span')
 
     //insert study hours
-    .type('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(11) > div.freebirdFormviewerViewItemsTextItemWrapper > div > div.quantumWizTextinputPaperinputMainContent.exportContent > div > div.quantumWizTextinputPaperinputInputArea > input',temp.study)
+    .type('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(11) > div.freebirdFormviewerViewItemsTextItemWrapper > div > div.quantumWizTextinputPaperinputMainContent.exportContent > div > div.quantumWizTextinputPaperinputInputArea > input',temp.scholar[id].study)
 
     //quiz grades
-    .type('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(12) > div.quantumWizTextinputPapertextareaEl.modeLight.freebirdFormviewerViewItemsTextLongText.freebirdThemedInput > div.quantumWizTextinputPapertextareaMainContent.exportContent > div.quantumWizTextinputPapertextareaContentArea.exportContentArea > textarea',temp.quizgrades)
+    .type('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(12) > div.quantumWizTextinputPapertextareaEl.modeLight.freebirdFormviewerViewItemsTextLongText.freebirdThemedInput > div.quantumWizTextinputPapertextareaMainContent.exportContent > div.quantumWizTextinputPapertextareaContentArea.exportContentArea > textarea',temp.scholar[id].quizgrades)
 
     //did not miss class
     .click('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(13) > div:nth-child(2) > div > content > div > label:nth-child(2) > div > div.docssharedWizToggleLabeledContent > div > span')
@@ -53,7 +56,7 @@ var temp = JSON.parse(contents);
     .click('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(15) > div:nth-child(2) > div > content > div > label:nth-child(2) > div > div.docssharedWizToggleLabeledContent > div > span')
 
     //insert estimate how you are doing this semester
-    .type('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(17) > div.quantumWizTextinputPapertextareaEl.modeLight.freebirdFormviewerViewItemsTextLongText.freebirdThemedInput > div.quantumWizTextinputPapertextareaMainContent.exportContent > div.quantumWizTextinputPapertextareaContentArea.exportContentArea > textarea',temp.class)
+    .type('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(17) > div.quantumWizTextinputPapertextareaEl.modeLight.freebirdFormviewerViewItemsTextLongText.freebirdThemedInput > div.quantumWizTextinputPapertextareaMainContent.exportContent > div.quantumWizTextinputPapertextareaContentArea.exportContentArea > textarea',temp.scholar[id].class)
 
     //changing major no
     .click('#mG61Hd > div > div.freebirdFormviewerViewFormContent > div.freebirdFormviewerViewItemList > div:nth-child(18) > div:nth-child(2) > div > content > div > label:nth-child(2) > div > div.docssharedWizToggleLabeledContent > div > span')
